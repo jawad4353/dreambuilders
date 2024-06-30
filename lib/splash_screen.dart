@@ -4,7 +4,7 @@ import 'package:dreambuilders/utilis/app_images.dart';
 import 'package:dreambuilders/utilis/app_preferences.dart';
 import 'package:dreambuilders/utilis/app_routes.dart';
 import 'package:dreambuilders/view/boarding/boarding.dart';
-import 'package:dreambuilders/view/screens/bottom_screen.dart';
+import 'package:dreambuilders/view/bottom_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

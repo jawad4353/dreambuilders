@@ -12,7 +12,7 @@ class AppConstants{
   static String alreadyHaveAccount='Already have an account? ';
   static String name='Name';
   static String nameHint='Jawad';
-  static String designationHint='junior php developer';
+  static String designationHint='Civil Engineer';
   static String email='Email';
   static String emailHint='abc@gmail.com';
   static String password='Password';
@@ -30,8 +30,6 @@ class AppConstants{
   static String skip='Skip';
   static String next='Next';
   static String ok='Ok';
-  static String locationRequired='Location required ';
-  static String appNeedsLocation='This app needs access to your location to function properly';
 
   //Register
   static String signUp='Sign Up';
@@ -52,10 +50,10 @@ class AppConstants{
   static String contactUs='Contact Us';
   static String search='Search';
   static String shareApp='Share App';
-  static String aboutUs='About Us';
+  static String privacy='Privacy Policy';
   static String logOut='Logout';
-  static String contactUsUrl='https://codecoytechnologies.com/contact/';
-  static String aboutUsUrl='https://codecoytechnologies.com/about/';
+  static String contactUsUrl='https://dreambuilders76566.000webhostapp.com/';
+  static String aboutUsUrl='https://dreambuilder56776.000webhostapp.com/';
   static String shareAppUrl='https://drive.google.com/file/d/1mM315ZUGUZfLaU3LMpz91g3O8NksxRl2/view?usp=sharing';
   static String appVersion='version $version';
   static String viewImage='View Image';
@@ -88,7 +86,7 @@ class AppConstants{
 
 
   //maps
-  static String liveTrack='Track Live';
+  static String bricks='Bricks';
   static String errorLoadingMap='Error loading map';
   static String loading='Loading';
   static String latitude='Latitude';
@@ -97,12 +95,13 @@ class AppConstants{
   static String longitudeHint='74.3';
 
   //location history
-  static String history='History';
-  static String locationHistory='Location History';
-  static String noHistory='No History';
+  static String tiles='Tiles';
+  static String calculator='Calculator';
+  static String calculate='Calculate';
+
 
 
   //draw polyline
-  static String polyline='Polyline';
-  static String drawPolyline='Draw Polyline';
+  static String cement='Cement';
+
 }

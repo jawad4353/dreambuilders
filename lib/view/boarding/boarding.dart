@@ -1,14 +1,13 @@
-import 'package:app_settings/app_settings.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:permission_handler/permission_handler.dart';
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_constants.dart';
 import '../../utilis/app_images.dart';
 import '../../utilis/app_routes.dart';
 import '../../utilis/app_text_styles.dart';
 import '../auth/login.dart';
-import '../dialogues/location_permission_dialogue.dart';
+
 
 class BoardingScreen extends StatefulWidget {
   const BoardingScreen({Key? key}) : super(key: key);
@@ -137,22 +136,9 @@ class _BoardingScreenState extends State<BoardingScreen> {
     );
   }
 
-  Future<bool> requestLocationPermission() async {
-    final status = await Permission.location.request();
-    if (status.isGranted) {
-      return true;
-    } else if (status.isPermanentlyDenied) {
-      AppSettings.openAppSettings();
-    }
-    return false;
-  }
+
 
   goToLogin() async {
-    bool result = await requestLocationPermission();
-    if (result) {
       Navigator.pushReplacement(context, MyRoute(const Login()));
-    } else {
-      onLocationPermission(context);
-    }
   }
 }

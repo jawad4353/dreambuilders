@@ -7,7 +7,8 @@ import '../../network_config/firebase_service.dart';
 import '../../utilis/app_preferences.dart';
 import '../../utilis/app_routes.dart';
 import '../../view/auth/login.dart';
-import '../../view/screens/bottom_screen.dart';
+import '../../view/bottom_screen.dart';
+
 part 'login_event.dart';
 part 'login_state.dart';
 

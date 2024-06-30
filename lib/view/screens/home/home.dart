@@ -1,11 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:workmanager/workmanager.dart';
 import '../../../main.dart';
 import '../../../network_config/firebase_service.dart';
 import '../../../utilis/app_colors.dart';
@@ -15,13 +12,12 @@ import '../../../utilis/app_preferences.dart';
 import '../../../utilis/app_routes.dart';
 import '../../../utilis/app_text_styles.dart';
 import '../../../view_model/bottom_navbar_bloc/bottom_navbar_bloc.dart';
-import '../../../view_model/location_history_bloc/location_history_bloc.dart';
 import '../../../view_model/profile_bloc/profile_bloc.dart';
 import '../../auth/login.dart';
 import '../../dialogues/logout.dart';
 import '../../widgets/custom_button.dart';
 import '../more/web_view_helper.dart';
-import 'notification_service.dart';
+
 
 
 
@@ -114,7 +110,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 _buttons(icon: AppImages.iconShareApp,text: AppConstants.shareApp),
-                _buttons(icon: AppImages.iconAboutUs,text: AppConstants.aboutUs),
+                _buttons(icon: AppImages.iconAboutUs,text: AppConstants.privacy),
                 _buttons(icon:AppImages.iconPrivacyPolicy,text:AppConstants.contactUs),
                 _buttons(icon: AppImages.iconLogOut,text:AppConstants.logOut ),
                 _buttons(icon: AppImages.iconDelete,text:AppConstants.deleteAccount ),
@@ -135,26 +131,7 @@ class _HomeState extends State<Home> {
         body:Center(
           child: SizedBox(
             width: 290.w,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                customButton(onPressed: () async {
-                  bool permissionGranted=await NotificationService.checkAndRequestNotificationPermission();
-                  if(permissionGranted){
-                    Workmanager().registerPeriodicTask('jawad', 'showNotification',frequency: const Duration(minutes: 10),inputData: {'name':'jawad'},constraints:
-                    Constraints(networkType: NetworkType.not_required,requiresBatteryNotLow: false,requiresCharging: false,requiresStorageNotLow: false,requiresDeviceIdle: false));
-                  }}, title: AppConstants.schedulePeriodicNotification),
 
-
-                customButton(onPressed: () async {Workmanager().cancelAll();},
-                    title: AppConstants.cancelPeriodicTask),
-
-                customButton(onPressed: () async {
-                  bool permissionGranted=await NotificationService.checkAndRequestNotificationPermission();
-                  if(permissionGranted){NotificationService.showNotification();}},
-                    title: AppConstants.getInstantNotifications),
-              ],),
           ),
         ),
       ),
@@ -175,8 +152,8 @@ class _HomeState extends State<Home> {
         if (text == AppConstants.shareApp) {
           Share.share(AppConstants.shareAppUrl);
         }
-        if (text == AppConstants.aboutUs) {
-          Navigator.push(context, MyRoute( WebViewHelper(AppConstants.aboutUsUrl,AppConstants.aboutUs)));
+        if (text == AppConstants.privacy) {
+          Navigator.push(context, MyRoute( WebViewHelper(AppConstants.aboutUsUrl,AppConstants.privacy)));
         }
         if (text == AppConstants.contactUs) {
           Navigator.push(context, MyRoute( WebViewHelper(AppConstants.contactUsUrl,AppConstants.contactUs)));
@@ -186,7 +163,6 @@ class _HomeState extends State<Home> {
           if (s) {
             bool logout= await FirebaseAuthService.signOut();
             context.read<ProfileBloc>().add(const ProfileClearEvent());
-            context.read<LocationHistoryBloc>().add(const LocationHistoryClearEvent());
             if(logout){
               Navigator.pushReplacement(context, MyRoute(const Login()));
             }

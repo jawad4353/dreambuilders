@@ -1,18 +1,19 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'package:dreambuilders/view/screens/bricks/bricks.dart';
+import 'package:dreambuilders/view/screens/cement/cement.dart';
+import 'package:dreambuilders/view/screens/home/home.dart';
 import 'package:dreambuilders/view/screens/profile/profile.dart';
+import 'package:dreambuilders/view/screens/tiles/tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../utilis/app_colors.dart';
 import '../../utilis/app_constants.dart';
-import '../../utilis/app_text_styles.dart';
 import '../../view_model/bottom_navbar_bloc/bottom_navbar_bloc.dart';
-import '../dialogues/exit_dialogue.dart';
-import 'draw_polyline/draw_polyline.dart';
-import 'home/home.dart';
-import 'live_tracking/live_track.dart';
-import 'location_history/location_history.dart';
+import '../utilis/app_text_styles.dart';
+import 'dialogues/exit_dialogue.dart';
+
 
 class BottomScreen extends StatefulWidget {
   const BottomScreen({Key? key}) : super(key: key);
@@ -24,10 +25,10 @@ class BottomScreen extends StatefulWidget {
 class _BottomScreenState extends State<BottomScreen> {
   var listScreens = [
     const Home(),
-    const LiveTrackingMap(),
+    const BricksCalculator(),
     const ProfileScreen(),
-    const LocationHistory(),
-    const DrawPolyLine()
+    const TilesCalculator(),
+    const CementCalculator(),
   ];
   int i = 0;
 
@@ -56,16 +57,16 @@ class _BottomScreenState extends State<BottomScreen> {
                 title: AppConstants.home,
               ),
               TabItem(
-                  icon: FontAwesomeIcons.city, title: AppConstants.liveTrack),
+                  icon: FontAwesomeIcons.trowelBricks, title: AppConstants.bricks),
               TabItem(
                   icon: FontAwesomeIcons.solidUser,
                   title: AppConstants.profile),
               TabItem(
-                  icon: FontAwesomeIcons.locationPinLock,
-                  title: AppConstants.history),
+                  icon: FontAwesomeIcons.trowel,
+                  title: AppConstants.tiles),
               TabItem(
-                  icon: FontAwesomeIcons.directions,
-                  title: AppConstants.polyline),
+                  icon: FontAwesomeIcons.angleUp,
+                  title: AppConstants.cement),
             ],
             titleStyle: AppTextStyles.robotoMedium(
                 color: AppColors.grey0E0F10,

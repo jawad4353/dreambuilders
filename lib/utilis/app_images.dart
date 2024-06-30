@@ -2,10 +2,10 @@
 
 class AppImages{
   //images
-  static String imgLogo='assets/images/codecoy_logo.jpg';
-  static String imgLogoTransparent='assets/images/logo_transparent.png';
+  static String imgLogo='assets/images/transparent_logo.png';
+  static String imgLogoTransparent='assets/images/transparent_logo.png';
   static String imgPattern='assets/images/pattern.png';
-  static String imgBoarding='assets/images/boarding_transparent.png';
+  static String imgBoarding='assets/images/boarding_two.png';
 
   //slider images home
   static String imgFirst='assets/images/first.png';

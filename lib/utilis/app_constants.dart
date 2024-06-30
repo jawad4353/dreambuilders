@@ -24,9 +24,9 @@ class AppConstants{
   static FilteringTextInputFormatter passwordFormatter= FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9_\-@.]*$'));
   static FilteringTextInputFormatter nameFormatter=FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z - ]'));
  //boarding
-  static String boardingTitle='"Unified Teamwork Platform"';
-  static String boardingSubtitle='Boost productivity with clear communication and integrated tools for'
-      ' a smooth, efficient, and streamlined workflow';
+  static String boardingTitle='"Empowering Your Vision"';
+  static String boardingSubtitle='Say Goodbye to Manual Estimations . Calculate, Plan, Build with Confidence'
+  'Effortlessly Estimate Materials and Costs for Every Project Detail.';
   static String skip='Skip';
   static String next='Next';
   static String ok='Ok';

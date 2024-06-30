@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors{
-  static Color primary=const Color(0xff0c4d9e);
-  static Color gradient=const Color(0xff0c1e50);
+  static Color primary=const Color(0xffA67D00);
+  static Color gradient=const Color(0xffCB9A09);
   //on surface text color
   static  Color black=Colors.white;
   static  Color black191B32=const Color(0xff191B32);

@@ -59,7 +59,10 @@ class _BoardingScreenState extends State<BoardingScreen> {
           SizedBox(
             height: 30.h,
           ),
-          Image.asset(AppImages.imgBoarding, height: 1.sh * 0.55),
+          Image.asset(AppImages.imgBoarding, height: 1.sh * 0.50),
+          SizedBox(
+            height: 30.h,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Text(

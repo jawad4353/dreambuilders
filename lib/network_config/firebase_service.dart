@@ -19,11 +19,11 @@ class FirebaseAuthService {
   static Future<void> initialize() async {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-        apiKey: "AIzaSyDvucuzUkiSI6_W2uFCUXoYGvwkoYtjK3s",
-        appId: "1:268459879851:android:5b3867c3ef984e2bb036ee",
-        messagingSenderId: '268459879851',
-        projectId: "codecoy-5d6fa",
-        storageBucket: 'codecoy-5d6fa.appspot.com',
+        apiKey: "AIzaSyDAwGMfGHtvQklHFEBlQETI0BGKClOYEk8",
+        appId: "1:122152953750:android:7616b634ddc4e615b85fb7",
+        messagingSenderId: '122152953750',
+        projectId: "dreambuilders-567d4",
+        storageBucket: 'dreambuilders-567d4.appspot.com',
       ),
     );
   }

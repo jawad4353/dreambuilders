@@ -103,5 +103,13 @@ class AppConstants{
 
   //draw polyline
   static String cement='Cement';
+  static String length='Length';
+  static String thickness='Thickness';
+  static String hintLength='2 meters';
+  static String hintWidth='10 meters';
+  static String hintThickness='0.5 meter';
+  static String width='Width';
+  static String ofWall='of wall';
+
 
 }

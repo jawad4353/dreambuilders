@@ -2,6 +2,7 @@
 import 'package:dreambuilders/splash_screen.dart';
 import 'package:dreambuilders/utilis/app_colors.dart';
 import 'package:dreambuilders/view_model/bottom_navbar_bloc/bottom_navbar_bloc.dart';
+import 'package:dreambuilders/view_model/cement_bloc/cement_bloc.dart';
 import 'package:dreambuilders/view_model/login_bloc/login_bloc.dart';
 import 'package:dreambuilders/view_model/profile_bloc/profile_bloc.dart';
 import 'package:dreambuilders/view_model/register_bloc/register_bloc.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget   {
           BlocProvider(create: (context)=>LoginBloc()),
           BlocProvider(create: (context)=>BottomNavBarBloc()),
           BlocProvider(create: (context)=>ProfileBloc()),
+          BlocProvider(create: (context)=>CementBloc()),
 
         ],
         child: MaterialApp(

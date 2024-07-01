@@ -87,6 +87,10 @@ class AppConstants{
 
   //maps
   static String bricks='Bricks';
+  static String brickPrice='Brick Price';
+  static String stealPrice='Steal Price';
+  static String cementBagPrice='Cement Bag ';
+  static String tilePrice='Tile Price';
   static String errorLoadingMap='Error loading map';
   static String loading='Loading';
   static String latitude='Latitude';

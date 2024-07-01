@@ -120,6 +120,7 @@ class _LoginState extends State<Login> {
                                 disabled: true);
                           }
                           return customButton(
+                            fullLength: true,
                               title: AppConstants.login,
                               onPressed: () async {
                                 if (_email.text.replaceAll(' ', '').isEmpty) {

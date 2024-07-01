@@ -7,10 +7,11 @@ Widget customButton({
   required String title,
   required VoidCallback onPressed,
   bool disabled = false,
+  bool fullLength=true,
 }) {
   return SizedBox(
     height: 48.h,
-    width: 1.sw*0.42,
+    width: fullLength ?1.sw :1.sw*0.42,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: disabled ? AppColors.grey0E0F10 : AppColors.primary,

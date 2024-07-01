@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         preferences.setString(AppPrefs.keyPassword, event.password);
         preferences.setString(AppPrefs.keyId, user.uid);
         preferences.setBool(AppPrefs.keyIsLogin, true);
+
         Navigator.pushReplacement(event.context, MyRoute(BottomScreen()));
       }
       else{

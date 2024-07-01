@@ -22,6 +22,7 @@ class _CementCalculatorState extends State<CementCalculator> {
   TextEditingController widthOfWall= TextEditingController();
   TextEditingController thicknessOfWall= TextEditingController();
   Map<String,dynamic> result={};
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -39,7 +40,7 @@ class _CementCalculatorState extends State<CementCalculator> {
           SizedBox(height: 10.h,),
          customCalculatorField(title:'${AppConstants.thickness}${AppConstants.ofWall}' ,controller: thicknessOfWall,hintText: AppConstants.hintThickness,inputFormatter: AppConstants.longitudeLatitudeFormatter),
           SizedBox(height: 10.h,),
-          customButton(title: AppConstants.calculate, onPressed: (){
+          customButton(fullLength: false,title: AppConstants.calculate, onPressed: (){
             if(lengthOfWall.text.isEmpty){
               EasyLoading.showInfo('Length required !');
               return;

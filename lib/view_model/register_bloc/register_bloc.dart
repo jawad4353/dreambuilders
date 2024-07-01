@@ -23,6 +23,7 @@ class RegisterBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
           emit(RegisterErrorState());
         }
         else {
+          FirebaseAuthService.createPricesList(event.email);
           emit(RegisterSuccessfulState());
           Navigator.pushReplacement(event.context, MyRoute(Login()));
 

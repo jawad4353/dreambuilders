@@ -81,7 +81,7 @@ class _TilesCalculatorState extends State<TilesCalculator> {
   }
 
   Widget button(){
-    return  customButton(title: AppConstants.calculate, onPressed: (){
+    return  customButton(fullLength: false,title: AppConstants.calculate, onPressed: (){
       if(lengthOfFloor.text.isEmpty){
         EasyLoading.showInfo('Length required !');
         return;

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dreambuilders/view/screens/home/slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,12 +13,12 @@ import '../../../utilis/app_preferences.dart';
 import '../../../utilis/app_routes.dart';
 import '../../../utilis/app_text_styles.dart';
 import '../../../view_model/bottom_navbar_bloc/bottom_navbar_bloc.dart';
+import '../../../view_model/home_bloc/home_bloc.dart';
 import '../../../view_model/profile_bloc/profile_bloc.dart';
 import '../../auth/login.dart';
 import '../../dialogues/logout.dart';
-import '../../widgets/custom_button.dart';
+import '../../dialogues/update_prices_dialogue.dart';
 import '../more/web_view_helper.dart';
-
 
 
 
@@ -35,6 +36,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     context.read<ProfileBloc>().add(const ProfileLoadEvent());
+    context.read<HomeBloc>().add(const HomeLoadingEvent());
   }
 
   @override
@@ -115,7 +117,6 @@ class _HomeState extends State<Home> {
                 _buttons(icon: AppImages.iconLogOut,text:AppConstants.logOut ),
                 _buttons(icon: AppImages.iconDelete,text:AppConstants.deleteAccount ),
 
-
                  Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
@@ -128,15 +129,51 @@ class _HomeState extends State<Home> {
           ),
         ),
 
-        body:Center(
-          child: SizedBox(
-            width: 290.w,
+        body:ListView(
+          children: [
+            Container(
+              color: AppColors.white,
+                height: 1.sh*0.26,
+                child: const ImageSlider()),
 
-          ),
-        ),
+            BlocBuilder<HomeBloc,HomeState>(builder: (context,state){
+              if(state is HomeLoadedState){
+                return InkWell(
+                  onTap: (){
+                    openPricesDialogue(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['stealPrice']??"" );
+                  },
+                    child: homeButtonsPrices(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['stealPrice']??"" ));
+              }
+              return homeButtonsPrices(brickPrice: '', tilePrice: '', cementBagPrice: '', steelPrice: '');
+            }),
+          ],
+        )
+
+
       ),
     );
   }
+
+
+
+  Widget homeButtonsPrices({required String brickPrice,required String tilePrice,required String cementBagPrice,required String steelPrice }){
+    return Column(children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+        valueContainers(title: AppConstants.brickPrice, result: brickPrice, color: AppColors.green),
+        valueContainers(title: AppConstants.tilePrice, result: tilePrice, color: AppColors.orange),
+      ],),
+      SizedBox(height: 10.h,),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+        valueContainers(title: AppConstants.cementBagPrice, result: cementBagPrice, color: AppColors.purple),
+        valueContainers(title: AppConstants.stealPrice, result: steelPrice, color: AppColors.brown),
+      ],),
+    ],);
+  }
+
 
 
   Widget _buttons({required String text,required String icon}) {
@@ -208,5 +245,46 @@ class _HomeState extends State<Home> {
   }
 
 
+
+  Widget valueContainers({required String title, required String result,required Color color}){
+    return Container(
+      width: 1.sw*0.42 ,
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 12),
+      decoration: BoxDecoration(
+          border: Border.all(color: color , width: 1),
+          color: color.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(4)
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,style: AppTextStyles.robotoMedium(color: AppColors.grey0E0F10,fontSize: 17.0,weight: FontWeight.w500 ),),
+          const SizedBox(height: 12),
+          Container(
+            height: 3,
+            width: 22,
+            color: color,
+          ),
+          const SizedBox(height: 12),
+          Text(result,style: AppTextStyles.robotoMedium(color: color,fontSize: 20.0,weight: FontWeight.w500 ),)
+        ],
+      ),
+    );
+  }
+
+
+Future openPricesDialogue({required String brickPrice,required String tilePrice,required String cementBagPrice,required String steelPrice }){
+    return   showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return PriceUpdateDialog(
+          initialSteelPrice: steelPrice,
+          initialTilePrice: tilePrice,
+          initialCementBagPrice: cementBagPrice,
+          initialBrickPrice: brickPrice,
+        );
+      },
+    );
+}
 }
 

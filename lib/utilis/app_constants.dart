@@ -109,7 +109,10 @@ class AppConstants{
   static String hintWidth='10 meters';
   static String hintThickness='0.5 meter';
   static String width='Width';
-  static String ofWall='of wall';
-
-
+  static String ofWall=' of wall';
+  static String ofTile=' of tile';
+  static String ofFloor=' of floor';
+  static String wastePercent='Waste Percentage';
+  static String hintWaste=' 3 %';
+  static String hintTile=' 5 cm';
 }

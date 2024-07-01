@@ -11,8 +11,8 @@ Widget myAppBar({required String title,required BuildContext context,required bo
   Navigator.of(context).pop();
   },
   child: Container(
-  height: 35.h,
-  width: 35.h,
+  height: 33.h,
+  width: 33.h,
   margin: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.h),
   clipBehavior: Clip.antiAlias,
   decoration:  BoxDecoration(
@@ -24,6 +24,6 @@ Widget myAppBar({required String title,required BuildContext context,required bo
   ):null,
   backgroundColor:AppColors.primary ,
   centerTitle: true,
-  title:  Text(title,style: AppTextStyles.robotoMedium(color: AppColors.white, fontSize: 24.sp, weight: FontWeight.w600),),);
+  title:  Text(title,style: AppTextStyles.robotoMedium(color: AppColors.white, fontSize: 21.sp, weight: FontWeight.w600),),);
 
 }

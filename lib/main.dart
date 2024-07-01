@@ -6,6 +6,7 @@ import 'package:dreambuilders/view_model/cement_bloc/cement_bloc.dart';
 import 'package:dreambuilders/view_model/login_bloc/login_bloc.dart';
 import 'package:dreambuilders/view_model/profile_bloc/profile_bloc.dart';
 import 'package:dreambuilders/view_model/register_bloc/register_bloc.dart';
+import 'package:dreambuilders/view_model/tiles_bloc/tiles_bloc.dart';
 import 'package:dreambuilders/view_model/web_view_bloc/web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget   {
           BlocProvider(create: (context)=>BottomNavBarBloc()),
           BlocProvider(create: (context)=>ProfileBloc()),
           BlocProvider(create: (context)=>CementBloc()),
-
+          BlocProvider(create: (context)=>TilesBloc()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -12,7 +12,6 @@ class CementBloc extends Bloc<CementEvent, CementState> {
        if(event is CementLoadingEvent){
          emit(CementLoadingState());
          DocumentSnapshot<Map<String, dynamic>>  result=await FirebaseFirestore.instance.collection('prices').doc('gkC0cqNnh8V29vHd0QVN').get();
-
          emit(CementLoadedState(SupportingMethods.calculatePlasterMaterials( event.length,  event.width, event.thickness,double.parse(result.data()!['cementBag'].toString()),double.parse(result.data()!['sandFourtyKG'].toString()))));
        }}
     catch(e){

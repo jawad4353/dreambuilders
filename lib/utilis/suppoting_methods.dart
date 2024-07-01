@@ -32,4 +32,29 @@ class SupportingMethods{
     return !regExp.hasMatch(input);
   }
 
+
+  static Map<String, dynamic> calculateTiles(
+      double lengthOfFloor,
+      double widthOfFloor,
+      double tileLength,
+      double tileWidth,
+      double costPerCm,
+      double wastagePercent,
+      ) {
+
+    double floorLengthCm = lengthOfFloor * 100;
+    double floorWidthCm = widthOfFloor * 100;
+    double totalArea = lengthOfFloor * widthOfFloor;
+    double tileAreaCm2 = tileLength * tileWidth;
+    double tilesWithWastage = ((floorLengthCm * floorWidthCm) / tileAreaCm2) * (1 + wastagePercent / 100);
+    int tilesRequired = tilesWithWastage.ceil();
+    double tileCost = tileAreaCm2 * costPerCm;
+    double totalCost = tilesRequired * tileCost;
+    return {
+      'totalArea': totalArea,
+      'tilesRequired': tilesRequired,
+      'totalCost': totalCost,
+    };
+  }
+
 }

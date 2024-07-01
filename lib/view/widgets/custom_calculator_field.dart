@@ -13,24 +13,21 @@ Widget customCalculatorField({
 }) {
   return Container(
     height: 60.h,
-    width: 1.sw,
+    width: 0.43.sw,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(7.r),
       border: Border.all(color: AppColors.greyB2AFAF, width: 1.1),
     ),
     child: Row(
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 2.w),
-          child:  VerticalDivider(width: 1.2.w),
-        ),
+
         SizedBox(width: 8.w),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.symmetric(vertical: 6.h),
+                margin: EdgeInsets.symmetric(vertical: 5.h),
                 child: Text(
                   title,
                   style: AppTextStyles.robotoMedium(
@@ -41,7 +38,7 @@ Widget customCalculatorField({
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 22.h,
                 // Remove the width property
                 child:TextField(
                   onChanged: (a) {},

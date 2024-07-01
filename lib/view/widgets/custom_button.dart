@@ -10,7 +10,7 @@ Widget customButton({
 }) {
   return SizedBox(
     height: 48.h,
-    width: double.maxFinite,
+    width: 1.sw*0.42,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: disabled ? AppColors.grey0E0F10 : AppColors.primary,

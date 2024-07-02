@@ -127,14 +127,14 @@ class PlasterMaterialsTable extends StatelessWidget {
           ),
           DataRow(
             cells: <DataCell>[
-              DataCell(Text('Cement Bags Required')),
+              DataCell(Text('Cement Bags ')),
               DataCell(Text(data['cementBags'].toString())),
               DataCell(Text('bags')),
             ],
           ),
           DataRow(
             cells: <DataCell>[
-              DataCell(Text('Sand Required')),
+              DataCell(Text('Sand ')),
               DataCell(Text(data['sandRequired'].toString())),
               DataCell(Text('m³')),
             ],

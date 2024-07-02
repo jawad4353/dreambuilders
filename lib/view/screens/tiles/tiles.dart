@@ -145,28 +145,30 @@ class TileCalculationTable extends StatelessWidget {
         ),
       ],
       rows: <DataRow>[
-
         DataRow(
           cells: <DataCell>[
-            const DataCell(Text('tiles')), // Unit
-            const DataCell(Text('Tiles Required')), // Item Name
-            DataCell(Text(result['tilesRequired'].toString())), // Quantity
-          ],
-        ),
-        DataRow(
-          cells: <DataCell>[
-            const DataCell(Text('Rs')), // Unit
-            const DataCell(Text('Total Cost')), // Item Name
-            DataCell(Text(result['totalCost'].toString())), // Quantity
-          ],
-        ),
-        DataRow(
-          cells: <DataCell>[
-            const DataCell(Text('m²')), // Unit
             const DataCell(Text('Total Area')), // Item Name
-            DataCell(Text(result['totalArea'].toStringAsFixed(2))), // Quantity
+            DataCell(Text(result['totalArea'].toStringAsFixed(2))),
+            const DataCell(Text('m²')), // Quantity
           ],
         ),
+        DataRow(
+          cells: <DataCell>[
+           // Unit
+            const DataCell(Text('Tiles Required')), // Item Name
+            DataCell(Text(result['tilesRequired'].toString())),
+            const DataCell(Text('tiles')), // Quantity
+          ],
+        ),
+        DataRow(
+          cells: <DataCell>[
+          // Unit
+            const DataCell(Text('Total Cost')), // Item Name
+            DataCell(Text(result['totalCost'].toString())),
+            const DataCell(Text('Rs')), // Quantity
+          ],
+        ),
+
       ],
     );
   }

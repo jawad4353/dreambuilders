@@ -43,4 +43,8 @@ class AppImages{
   static String iconVisibility='assets/icons/icon_visibility.png';
   static String iconVisibilityOff='assets/icons/icon_visibility_off.png';
   static String iconSkip='assets/icons/skip_icon.png';
+  static String iconCircularWall='assets/icons/brick_wall_icon.PNG';
+  static String iconBrickWall='assets/icons/circular_wall_icon.PNG';
+
+
 }

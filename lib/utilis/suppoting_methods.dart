@@ -57,4 +57,43 @@ class SupportingMethods{
     };
   }
 
+ static Map<String, dynamic> calculateSteelCost({
+    required double length,
+    required double width,
+    required double diameter,
+    required double density,
+    required double costPerKg,
+  }) {
+
+    double totalArea = length * width;
+    double steelAmount = totalArea * diameter;
+    double totalDensity = steelAmount * density;
+    double totalDiameter = diameter * length * width;
+    double cost = steelAmount * costPerKg;
+
+    return {
+      'cost': cost,
+      'steelAmount': steelAmount,
+      'totalArea': totalArea,
+      'totalDensity': totalDensity,
+      'totalDiameter': totalDiameter,
+    };
+  }
+
+
+  static Map<String, dynamic> calculateWallBricksRequired(double length, double width, double thickness, double costPerBrick, double wastePercentage) {
+    double totalArea = length * width;
+    double totalBricks = (totalArea * 1000) / (thickness * 1000);
+    double wasteMultiplier = 1 + (wastePercentage / 100);
+    double bricksWithWaste = totalBricks * wasteMultiplier;
+    double wastedBricks = bricksWithWaste - totalBricks;
+    double totalCost = bricksWithWaste * costPerBrick;
+    return {
+      'totalArea': totalArea,
+      'totalBricks': bricksWithWaste.ceil(),
+      'wastedBricks': wastedBricks.ceil(),
+      'totalCost': totalCost,
+    };
+  }
+
 }

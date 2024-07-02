@@ -2,11 +2,13 @@
 import 'package:dreambuilders/splash_screen.dart';
 import 'package:dreambuilders/utilis/app_colors.dart';
 import 'package:dreambuilders/view_model/bottom_navbar_bloc/bottom_navbar_bloc.dart';
+import 'package:dreambuilders/view_model/brick_bloc/brick_bloc.dart';
 import 'package:dreambuilders/view_model/cement_bloc/cement_bloc.dart';
 import 'package:dreambuilders/view_model/home_bloc/home_bloc.dart';
 import 'package:dreambuilders/view_model/login_bloc/login_bloc.dart';
 import 'package:dreambuilders/view_model/profile_bloc/profile_bloc.dart';
 import 'package:dreambuilders/view_model/register_bloc/register_bloc.dart';
+import 'package:dreambuilders/view_model/steel_bloc/steel_bloc.dart';
 import 'package:dreambuilders/view_model/tiles_bloc/tiles_bloc.dart';
 import 'package:dreambuilders/view_model/web_view_bloc/web_view.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +58,8 @@ class MyApp extends StatelessWidget   {
           BlocProvider(create: (context)=>CementBloc()),
           BlocProvider(create: (context)=>TilesBloc()),
           BlocProvider(create: (context)=>HomeBloc()),
+          BlocProvider(create: (context)=>SteelBloc()),
+          BlocProvider(create: (context)=>BrickBloc()),
 
         ],
         child: MaterialApp(

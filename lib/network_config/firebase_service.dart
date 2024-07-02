@@ -124,7 +124,7 @@ class FirebaseAuthService {
   }
 
   static  createPricesList(email) async {
-    await _firestore.collection('prices').doc(email).set({'brickPrice':'40','tilesPrice':'35','stealPrice':'120','cementBag':'1250'});
+    await _firestore.collection('prices').doc(email).set({'brickPrice':'40','tilesPrice':'35','steelPrice':'120','cementBag':'1250'});
   }
 
   static Future<bool> uploadPictureBytes(

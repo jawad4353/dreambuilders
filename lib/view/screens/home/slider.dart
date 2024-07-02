@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,13 +89,12 @@ class _ImageSliderState extends State<ImageSlider> {
                   ),
                   child: Opacity(
                     opacity: 0.5,
-                    child: Image.network(
-                      imageUrls[index],
-                      fit: BoxFit.cover,
+                    child: CachedNetworkImage(
+                      fit: BoxFit.cover, imageUrl:  imageUrls[index],
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 30.h,
                     child: buildDots(index)),
               ],

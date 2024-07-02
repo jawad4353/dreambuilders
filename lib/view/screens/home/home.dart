@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dreambuilders/view/screens/home/bricks_wall_calculator.dart';
 import 'package:dreambuilders/view/screens/home/slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -140,16 +141,49 @@ class _HomeState extends State<Home> {
               if(state is HomeLoadedState){
                 return InkWell(
                   onTap: (){
-                    openPricesDialogue(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['stealPrice']??"" );
+                    openPricesDialogue(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['steelPrice']??"" );
                   },
-                    child: homeButtonsPrices(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['stealPrice']??"" ));
+                    child: homeButtonsPrices(brickPrice: state.result['brickPrice']??'', tilePrice: state.result['tilesPrice']??"", cementBagPrice:state.result['cementBag']??"", steelPrice:state.result['steelPrice']??"" ));
               }
               return homeButtonsPrices(brickPrice: '', tilePrice: '', cementBagPrice: '', steelPrice: '');
             }),
+
+            SizedBox(height: 30.h,),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 24.w),
+              child: ListTile(
+                onTap: (){Navigator.push(context, MyRoute(const BrickWallCalculator()));},
+                enabled: true,
+                minVerticalPadding: 24.h,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+                tileColor: AppColors.green.withOpacity(0.4),
+                leading: Container(
+                  height: 87.h,
+                  width: 87.h,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Image.asset(AppImages.iconBrickWall)),
+                title:  Text('Brick Wall Calculator',style: AppTextStyles.robotoMedium(color: AppColors.grey0E0F10, fontSize: 17.sp, weight: FontWeight.w600),),
+                trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.green,),),
+            ),
+            SizedBox(height: 20.h,),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 24.w),
+              child: ListTile(
+                enabled: true,
+                minVerticalPadding: 24.h,
+                title:  Text('Circular Wall Calculator',style: AppTextStyles.robotoMedium(color: AppColors.grey0E0F10, fontSize: 17.sp, weight: FontWeight.w600),),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+                tileColor: AppColors.orange.withOpacity(0.4),
+                leading: Container(
+                  height: 87.h,
+                  width: 87.h,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Image.asset(AppImages.iconCircularWall)),trailing: Icon(Icons.arrow_forward_ios_sharp,color: AppColors.orange,weight: 800,),),
+            ),
           ],
         )
-
-
       ),
     );
   }

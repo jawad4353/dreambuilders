@@ -1,8 +1,8 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
-import 'package:dreambuilders/view/screens/bricks/bricks.dart';
 import 'package:dreambuilders/view/screens/cement/cement.dart';
 import 'package:dreambuilders/view/screens/home/home.dart';
 import 'package:dreambuilders/view/screens/profile/profile.dart';
+import 'package:dreambuilders/view/screens/steel/steel.dart';
 import 'package:dreambuilders/view/screens/tiles/tiles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +25,7 @@ class BottomScreen extends StatefulWidget {
 class _BottomScreenState extends State<BottomScreen> {
   var listScreens = [
     const Home(),
-    const BricksCalculator(),
+    const SteelCalculator(),
     const ProfileScreen(),
     const TilesCalculator(),
     const CementCalculator(),
@@ -57,7 +57,7 @@ class _BottomScreenState extends State<BottomScreen> {
                 title: AppConstants.home,
               ),
               TabItem(
-                  icon: FontAwesomeIcons.trowelBricks, title: AppConstants.bricks),
+                  icon: FontAwesomeIcons.rodAsclepius, title: AppConstants.steel),
               TabItem(
                   icon: FontAwesomeIcons.solidUser,
                   title: AppConstants.profile),
